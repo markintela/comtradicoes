@@ -12,21 +12,31 @@ cp .env.example .env        # no Windows: copy .env.example .env
 npm run dev
 ```
 
-Ao arrancar, o `npm run dev` mostra um **QR code no terminal** e guarda-o também em `qr-code.png`.
+Ao arrancar, o `npm run dev` mostra um **QR code no terminal** e guarda-o também em `qr-code.png`. Por padrão, o QR abre o site publicado:
+https://comtradicoes-nhqb15775-markintela182-1880s-projects.vercel.app/
 
 - **No computador:** abra http://localhost:5173
-- **No telemóvel:** leia o QR code com a câmara. O telemóvel tem de estar **na mesma rede Wi-Fi** que o computador.
+- **No telemóvel:** leia o QR code com a câmara para abrir o site publicado.
 
-> O QR code usa o IP do computador na rede (ex.: `http://192.168.1.20:5173`). O endereço `localhost` não serve no telemóvel, porque aí aponta para o próprio telemóvel.
-
-Para gerar só o QR code, ou indicar outro endereço:
+Para testar a versão local no telemóvel, o computador e o telemóvel têm de estar na mesma rede Wi-Fi. Gere o QR usando o IP local do computador:
 
 ```bash
-npm run qr
 npm run qr -- http://192.168.1.20:5173
 ```
 
-Se o telemóvel não abrir a página, confirme que a firewall do computador deixa entrar ligações na porta 5173.
+Para gerar só o QR code publicado:
+
+```bash
+npm run qr
+```
+
+Para gerar a versão em SVG para download:
+
+```bash
+npm run qr:svg
+```
+
+Pode indicar qualquer outro endereço depois de `npm run qr --`.
 
 No modo de demonstração (`MBWAY_MOCK=true`), o pedido é simulado e aparece como pago ao fim de 8 segundos. Nada é cobrado.
 
@@ -59,7 +69,7 @@ npm start          # site + API em http://localhost:3001
 ## Estrutura
 
 ```
-scripts/qr.js           gera o QR code de teste
+scripts/qr.js           gera o QR code do site publicado
 server/index.js         API: envia o pedido MB WAY e consulta o estado
 src/settings.js         definições da loja
 src/pages/Pagamento.jsx ecrã "Pagar a conta"
