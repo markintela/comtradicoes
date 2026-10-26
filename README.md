@@ -13,7 +13,7 @@ npm run dev
 ```
 
 Ao arrancar, o `npm run dev` mostra um **QR code no terminal** e guarda-o também em `qr-code.png`. Por padrão, o QR abre o site publicado:
-https://comtradicoes-nhqb15775-markintela182-1880s-projects.vercel.app/
+https://comtradicoes.vercel.app/
 
 - **No computador:** abra http://localhost:5173
 - **No telemóvel:** leia o QR code com a câmara para abrir o site publicado.

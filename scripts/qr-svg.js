@@ -2,7 +2,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import QRCode from 'qrcode';
 
-const URL_PUBLICA = 'https://comtradicoes-nhqb15775-markintela182-1880s-projects.vercel.app/';
+const URL_PUBLICA = 'https://comtradicoes.vercel.app/';
 const raiz = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const ficheiro = path.join(raiz, 'qr-code.svg');
 
