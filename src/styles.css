@@ -1,0 +1,214 @@
+:root {
+  --accent: #6B3E26;      /* castanho-café: botões e destaques */
+  --tinta: #1F1510;       /* texto principal (quase preto) */
+  --fundo: #FFFFFF;       /* fundo do conteúdo */
+  --papel: #FFFFFF;
+  --linha: #E4DDCC;
+  --suave: #3F362E;       /* texto secundário */
+  --creme: #F3ECDF;
+  --topo: #EBD5B5;        /* fundo do topo (bege latte) */
+  --marca: #3A2114;       /* nome "Com Tradições" no topo */
+  --erro: #9A2B1E;
+  --sucesso: #2F6B3A;
+  --titulo: 'Poppins', Arial, sans-serif;
+  --texto: 'Poppins', Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--fundo);
+  color: var(--tinta);
+  font-family: var(--texto);
+  -webkit-font-smoothing: antialiased;
+}
+button, input { font-family: inherit; }
+h1 {
+  margin: 0;
+  font-family: var(--titulo);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.15;
+}
+
+/* ── Layout ─────────────────────────────── */
+.app {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--fundo);
+}
+.topo {
+  background: var(--topo);
+  color: var(--accent);
+  padding: calc(26px + env(safe-area-inset-top)) 24px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+}
+.marca { display: block; width: 240px; max-width: 70vw; height: auto; margin: 4px 0 6px; }
+.subtitulo {
+  font-family: var(--titulo);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.conteudo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 16px calc(24px + env(safe-area-inset-bottom));
+  margin-top: -40px;
+}
+
+/* ── Cartão ─────────────────────────────── */
+.cartao {
+  background: var(--papel);
+  border: 1px solid var(--linha);
+  border-radius: 22px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 12px 30px rgba(42, 28, 20, 0.08);
+}
+.cartao.centrado { align-items: center; text-align: center; padding: 36px 20px 24px; gap: 16px; }
+.cabecalho { display: flex; flex-direction: column; gap: 6px; }
+.cabecalho h1 { margin-top: 6px; }
+.selo {
+  align-self: flex-start;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #fff;
+  background: #2A1C14;
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+.texto-suave { margin: 0; font-size: 14.5px; line-height: 1.5; color: var(--suave); }
+.nota { margin: 0; padding: 0 12px; font-size: 12.5px; line-height: 1.5; color: var(--suave); text-align: center; }
+
+/* ── Campos ─────────────────────────────── */
+.campo { display: flex; flex-direction: column; gap: 8px; }
+.campo label { font-size: 13px; font-weight: 600; color: #2A1C14; }
+.entrada {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 56px;
+  padding: 0 16px;
+  border: 2px solid var(--linha);
+  border-radius: 14px;
+  background: #FBF8F1;
+  transition: border-color 0.15s;
+}
+.entrada:focus-within { border-color: var(--accent); }
+.entrada.valida { border-color: var(--accent); }
+.entrada.invalida { border-color: var(--erro); }
+.entrada input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--tinta);
+  outline: none;
+}
+.entrada-grande { height: 72px; padding: 0 18px; border-radius: 16px; }
+.entrada-grande input { font-size: 34px; font-weight: 600; }
+.prefixo-euro { font-family: var(--texto); font-weight: 600; font-size: 34px; color: var(--accent); }
+.prefixo-tel { font-size: 16px; font-weight: 600; color: var(--suave); padding-right: 10px; border-right: 1px solid var(--linha); }
+.erro-campo { font-size: 13px; color: var(--erro); }
+
+.destino {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: var(--creme);
+  color: var(--accent);
+}
+.destino div { display: flex; flex-direction: column; gap: 2px; min-width: 0; color: var(--tinta); }
+.destino .rotulo { font-size: 12px; color: var(--suave); }
+.destino strong { font-size: 15px; font-weight: 600; }
+
+.aviso-erro {
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #FBE9E5;
+  color: var(--erro);
+  font-size: 14px;
+}
+
+/* ── Botões ─────────────────────────────── */
+.botao-principal,
+.botao-secundario {
+  width: 100%;
+  min-height: 56px;
+  border-radius: 28px;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: transform 0.08s, opacity 0.15s;
+}
+.botao-principal { border: none; background: var(--accent); color: #fff; }
+.botao-principal:active { transform: scale(0.98); }
+.botao-principal:disabled { background: var(--linha); color: #6B6457; cursor: not-allowed; }
+.botao-secundario { border: 1.5px solid #2A1C14; background: transparent; color: #2A1C14; }
+.botao-principal:focus-visible,
+.botao-secundario:focus-visible { outline: 3px solid #2A1C14; outline-offset: 3px; }
+
+/* ── Estados ────────────────────────────── */
+.circulo {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: var(--creme);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.circulo.sucesso { background: #E4F0E4; color: var(--sucesso); }
+.circulo.falha { background: #FBE9E5; color: var(--erro); }
+
+.resumo { width: 100%; margin: 0; border: 1px solid #EFE9DC; border-radius: 14px; }
+.resumo div { display: flex; justify-content: space-between; padding: 14px 16px; font-size: 14px; }
+.resumo div + div { border-top: 1px solid #EFE9DC; }
+.resumo dt { color: var(--suave); }
+.resumo dd { margin: 0; font-weight: 600; }
+
+.contador {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--suave);
+  font-variant-numeric: tabular-nums;
+}
+
+.spinner {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 4px solid #EADFCB;
+  border-top-color: var(--accent);
+  animation: girar 0.9s linear infinite;
+}
+.spinner.pequeno { width: 18px; height: 18px; border-width: 2.5px; }
+@keyframes girar { to { transform: rotate(360deg); } }
